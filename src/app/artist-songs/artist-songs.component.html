@@ -1,0 +1,27 @@
+<div class="row justify-content-center" *ngIf="(albumDetails$ | async) as albumDetails">
+    <div class="col-lg-4">
+      <div class="card m-3" style="max-width: 300px;">
+        <img [src]="albumDetails.images[0].url" alt="{{ albumDetails.name }} cover image"/>
+        <div class="card-body">
+          <h5 class="card-title text-center"><strong>{{albumDetails.name}}</strong></h5>
+          <p>Release Date: {{albumDetails.release_date}}</p>          
+        </div>
+      </div>
+</div>
+<div class="container d-flex justify-content-center">
+  <ol class="list-group list-group-flush w-75 mx-auto" >
+    <li class="list-group-item rounded text-center" *ngFor="let song of songs">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="text-white mr-2">{{song.name}} <strong>Artists: </strong>
+        <span *ngFor="let artist of song.artists; let last = last" style="color: aliceblue;">
+          {{ artist.name }}
+          <ng-container *ngIf="!last; else elseBlock">, </ng-container>
+          <ng-template #elseBlock>&amp; </ng-template>
+        </span></span>           
+        <audio controls>
+          <source [src]="song.preview_url">
+        </audio>
+      </div>
+    </li>
+  </ol>
+</div>

@@ -1,0 +1,11 @@
+<div class="row">
+    <h1 style="color:aliceblue;" class="text-center mb-5">Type Music</h1>
+    <div class="col-md-4 mb-4" *ngFor="let genre of genres">
+      <div class="card bg-secondary">
+        <img src="{{genre.image}}" class="card-img-top" alt="{{genre.name}}">
+        <div class="card-body">
+          <h5 class="card-title text-center" style="color: white"><strong>{{genre.name}}</strong></h5>
+        </div>
+      </div>  
+    </div>
+</div>

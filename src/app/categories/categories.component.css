@@ -1,0 +1,9 @@
+a{
+    text-decoration: none;
+}
+.card:hover {
+    transform: scale(1.05); /* increase the size of the card on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a shadow effect */
+    cursor: pointer; /* change the cursor to a pointer on hover */
+  }
+  

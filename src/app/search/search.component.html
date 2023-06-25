@@ -1,0 +1,25 @@
+<h1 style="color: aliceblue;">Need Music?</h1>
+<div class="input-group mb-3">
+   <span class="input-group-text" id="inputGroup-sizing-default">Search</span>
+   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="search" (keyup)="loadData()" placeholder="Search Music..">
+ </div>
+ <div class="container text-center">
+
+     <div class="d-flex flex-wrap justify-content-center">
+      <div *ngFor="let art of artists" class="d-flex">
+        <a routerLink="/artist/{{art.id}}" (click)="onArtistClick(art.id)" style="text-decoration: none; color: rgb(28, 28, 28);">
+          <div class="card m-5 p-5 rounded card-hover d-flex flex-column" style="max-width: 300px;">
+            <img src="{{art?.images[0]?.url}}" class="card-img-top mx-auto d-block" style="width: 200px;height: 200px;">
+            <div class="card-body" style="height: 250px;">
+              <h5 class="card-title">Tên tác giả: {{art.name}}</h5>
+              <p class="card-text">Số lượng theo dõi {{art.followers.total | number}}</p>
+              <div class="card-text p-3">
+                <strong>Genres: </strong>
+                <span *ngFor="let genre of art.genres.slice(0, 3)">{{genre}}</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>      
+ </div>
+   
